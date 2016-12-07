@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    </head>
+    <body style="background-color:green; text-align: right;">
+        
+        <button type="button" onclick="hideAndSeekRegistrati()" style="visibility:visible" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
+        <div id="Registrati" style="visibility:hidden">
+            <form action="/addUtente" method="post">
+                NomeUtente: <input type="text" name="surname"><br>
+                Password: <input type="text" name="level"><br>
+                <button type="button" onclick="submit()" class="btn btn btn-primary">Invia</button>
+                <button type="button" onclick="hideAndSeekIndietro()" class="btn btn btn-primary">Torna Indietro</button>
+                
+            </form>
+            <button type="button" onclick="hideAndSeekRegistrati()" style="visibility:visible" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
+        <div id="Login" style="visibility:hidden">
+            <form action="/login" method="post">
+                NomeUtente: <input type="text" name="surname"><br>
+                Password: <input type="text" name="level"><br>
+                <button type="button" onclick="submit()" class="btn btn btn-primary">Invia</button>
+                <button type="button" onclick="hideAndSeekIndietro()" class="btn btn btn-primary">Torna Indietro</button>
+                
+            </form>
+        </div>
+        <script>
+            function hideAndSeekRegistrati(){
+                var divOne = document.getElementById('Registrati');
+                var divTwo = document.getElementById('BottoneRegistrati');
+                divOne.style.visibility = 'visible';
+                divTwo.style.visibility = 'hidden';
+            }
+             function hideAndSeekIndietro(){
+                var divOne = document.getElementById('Registrati');
+                var divTwo = document.getElementById('BottoneRegistrati');
+                divOne.style.visibility = 'hidden';
+                divTwo.style.visibility = 'visible';
+            }
+            function hideAndSeekLogin(){
+                var divOne = document.getElementById('Registrati');
+                var divTwo = document.getElementById('BottoneRegistrati');
+                divOne.style.visibility = 'hidden';
+                divTwo.style.visibility = 'visible';
+            }
+        </script>
+    </body>
+</html>
