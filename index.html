@@ -4,24 +4,26 @@
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
     </head>
-    <body style="background-color:green; text-align: right;">
-        
-        <button type="button" onclick="hideAndSeekRegistrati()" style="visibility:visible" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
-        <div id="Registrati" style="visibility:hidden">
-            <form action="/addUtente" method="post">
-                NomeUtente: <input type="text" name="surname"><br>
+    <body style="background-color:green; text-align: center">
+        <h1>BENVENUTI!</h1>
+        <h3>Si ricorda che per ordinare i pasti bisogna accedere con le proprie credenziali</h3>
+         <button type="button" onclick="hideAndSeekLogin()" style="visibility:visible;" id="BottoneLogin" class="btn btn-lg btn-primary">Accedi</button>
+        <div id="Login" style="visibility:hidden;">
+            <form action="/login" method="post">
+                Nome Utente: <input type="text" name="surname"><br>
                 Password: <input type="text" name="level"><br>
-                <button type="button" onclick="submit()" class="btn btn btn-primary">Invia</button>
-                <button type="button" onclick="hideAndSeekIndietro()" class="btn btn btn-primary">Torna Indietro</button>
+                <button type="button" onclick="submit()" class="btn btn btn-primary">Accedi</button>
+                <button type="button" onclick="hideAndSeekIndietroLogin()" class="btn btn btn-primary">Torna Indietro</button>
                 
             </form>
-            <button type="button" onclick="hideAndSeekRegistrati()" style="visibility:visible" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
-        <div id="Login" style="visibility:hidden">
-            <form action="/login" method="post">
-                NomeUtente: <input type="text" name="surname"><br>
-                Password: <input type="text" name="level"><br>
+        </div>
+        <button type="button" onclick="hideAndSeekRegistrati()" style="text-align: center;" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
+        <div id="Registrati" style="visibility:hidden; text-align: center;">
+            <form action="/addUtente" method="post">
+                Nome Utente: <input type="text" name="surname" id="registerSurname"><br>
+                Password: <input type="text" name="level" id="registerPassword"><br>
                 <button type="button" onclick="submit()" class="btn btn btn-primary">Invia</button>
-                <button type="button" onclick="hideAndSeekIndietro()" class="btn btn btn-primary">Torna Indietro</button>
+                <button type="button" onclick="hideAndSeekIndietroRegistrati()" class="btn btn btn-primary">Torna Indietro</button>
                 
             </form>
         </div>
@@ -32,15 +34,21 @@
                 divOne.style.visibility = 'visible';
                 divTwo.style.visibility = 'hidden';
             }
-             function hideAndSeekIndietro(){
+             function hideAndSeekIndietroRegistrati(){
                 var divOne = document.getElementById('Registrati');
                 var divTwo = document.getElementById('BottoneRegistrati');
                 divOne.style.visibility = 'hidden';
                 divTwo.style.visibility = 'visible';
             }
             function hideAndSeekLogin(){
-                var divOne = document.getElementById('Registrati');
-                var divTwo = document.getElementById('BottoneRegistrati');
+                var divOne = document.getElementById('Login');
+                var divTwo = document.getElementById('BottoneLogin');
+                divOne.style.visibility = 'visible';
+                divTwo.style.visibility = 'hidden';
+            }
+            function hideAndSeekIndietroLogin(){
+                var divOne = document.getElementById('Login');
+                var divTwo = document.getElementById('BottoneLogin');
                 divOne.style.visibility = 'hidden';
                 divTwo.style.visibility = 'visible';
             }

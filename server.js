@@ -17,18 +17,13 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/create/', function(request, response) 
 {
 	var text = 'responce:';
-	response.writeHead(200, {'Content-Type': 'text/html'});
-	
+	response.writeHead(200, {'Content-Type': 'text/html'});	
 	console.log("called");
-
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {	
 		console.log("connected to db");
-	
 		//create table	
 		client.query('create table pasti (pasto text)', function(err, result) {
-		  done();
-			
+		  done();			
 		  if (err){ 
 			   console.error(err); 
 			   response.send("Error " + err); 
@@ -92,6 +87,8 @@ app.get('/addPasto/', function(request, response)
 
 app.get('/addUtente/', function(request, response) 
 {
+    var query = {text: 'insert into utenti values ($1, $2, false)',
+			values: [req.body.registerUsername, req.body.registerPassword] }
 	var text = 'responce:';
 	response.writeHead(200, {'Content-Type': 'text/html'});
 	
@@ -102,13 +99,14 @@ app.get('/addUtente/', function(request, response)
 		console.log("connected to db");
 
 		//add element
-		client.query('insert into utente values (\'Marco\', \asd\', false)', function(err, result) {
+		client.query(query, function(err, result) {
 		  done();
-		  if (err) { 
+		  if (err){ 
 			  console.error(err); 
-			  response.send("Error insert " + err); }
+			  response.send("Error insert " + err);
+          }
 		  else {
-			  response.end("row added");
+			  response.end();
 		   }
 		});
   	});
