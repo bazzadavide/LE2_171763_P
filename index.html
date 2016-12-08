@@ -4,6 +4,7 @@
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
     </head>
+<<<<<<< HEAD
     <body style="background-color:green; text-align: center">
         <h1>BENVENUTI!</h1>
         <h3>Si ricorda che per ordinare i pasti bisogna accedere con le proprie credenziali</h3>
@@ -14,6 +15,17 @@
                 Password: <input type="text" name="level"><br>
                 <button type="button" onclick="submit()" class="btn btn btn-primary">Accedi</button>
                 <button type="button" onclick="hideAndSeekIndietroLogin()" class="btn btn btn-primary">Torna Indietro</button>
+=======
+    <body style="background-color:green; text-align: right;">
+        
+        <button type="button" onclick="hideAndSeekRegistrati()" style="visibility:visible" id="BottoneRegistrati" class="btn btn-lg btn-primary">Registrati</button>
+        <div id="Registrati" style="visibility:hidden">
+            <form action="/addUtente" method="post">
+                NomeUtente: <input type="text" name="surname"><br>
+                Password: <input type="text" name="password"><br>
+                <button type="button" onclick="submit()" class="btn btn btn-primary">Invia</button>
+                <button type="button" onclick="hideAndSeekIndietro()" class="btn btn btn-primary">Torna Indietro</button>
+>>>>>>> dev
                 
             </form>
         </div>
