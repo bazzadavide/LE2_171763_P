@@ -90,8 +90,11 @@ app.get('/addPasto/', function(request, response)
 *
 */
 
-app.get('/addUtente/', function(request, response) 
+app.get('/addUtente', function(request, response) 
 {
+    var query = {text: 'insert into utente values ($1, $2, false)',
+			values: [req.body.username, req.body.password] }
+    
 	var text = 'responce:';
 	response.writeHead(200, {'Content-Type': 'text/html'});
 	
@@ -101,16 +104,21 @@ app.get('/addUtente/', function(request, response)
 		
 		console.log("connected to db");
 
-		//add element
-		client.query('insert into utente values (\'Marco\', \asd\', false)', function(err, result) {
+		//aggiunge il nuovo utente 
+		client.query(query, function(err, result) {
 		  done();
-		  if (err) { 
-			  console.error(err); 
-			  response.send("Error insert " + err); }
-		  else {
-			  response.end("row added");
+			
+		  if (err){ 
+			   console.error(err); 
+			   response.send("Error " + err); 
+		   }
+		  else{
+              console.log("inserito nuovo utente nel db");
+			  response.end("table created");
 		   }
 		});
+        
+        
   	});
 
 });
